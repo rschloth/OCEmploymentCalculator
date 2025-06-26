@@ -66,7 +66,7 @@
             <p class="mt-3 text-lg text-gray-700">See the full value of a career at Oberlin College.</p>
         </header>
 
-        <main class="bg-white p-6 md:p-8 rounded-lg shadow-2xl max-w-4xl mx-auto">
+        <main class="bg-white p-6 md:p-8 rounded-lg shadow-2xl max-w-5xl mx-auto">
             <div class="grid md:grid-cols-2 gap-8 md:gap-12">
                 <!-- Left Column: Inputs -->
                 <div class="space-y-6">
@@ -88,35 +88,77 @@
                         <input type="range" id="employeeContribution" min="0" max="20" step="1" value="5" class="w-full">
                         <div class="text-center text-lg font-semibold text-oberlin-crimson mt-2" id="employeeContribution-value">5%</div>
                     </div>
+                    
+                    <div>
+                        <label for="children" class="block font-bold text-gray-700 mb-2">Number of Dependent Children (for Tuition)</label>
+                        <input type="number" id="children" min="0" max="10" value="0" class="w-full p-2 border border-gray-300 rounded-md focus:ring-oberlin-gold focus:border-oberlin-gold">
+                    </div>
 
                     <div>
-                        <label for="children" class="block font-bold text-gray-700 mb-2">Number of Dependent Children</label>
-                        <input type="number" id="children" min="0" max="10" value="0" class="w-full p-2 border border-gray-300 rounded-md focus:ring-oberlin-gold focus:border-oberlin-gold">
+                        <label for="healthCoverage" class="block font-bold text-gray-700 mb-2">Health Coverage</label>
+                        <select id="healthCoverage" class="w-full p-2 border border-gray-300 rounded-md focus:ring-oberlin-gold focus:border-oberlin-gold">
+                            <option value="none">No Coverage</option>
+                            <option value="employee" selected>Employee Only</option>
+                            <option value="employee_plus_one">Employee + 1</option>
+                            <option value="family">Family</option>
+                        </select>
+                    </div>
+
+                     <div>
+                        <label for="dentalCoverage" class="block font-bold text-gray-700 mb-2">Dental Coverage</label>
+                        <select id="dentalCoverage" class="w-full p-2 border border-gray-300 rounded-md focus:ring-oberlin-gold focus:border-oberlin-gold">
+                            <option value="none">No Coverage</option>
+                            <option value="employee" selected>Employee Only</option>
+                            <option value="employee_plus_one">Employee + 1</option>
+                            <option value="family">Family</option>
+                        </select>
+                    </div>
+
+                    <div>
+                        <label for="visionCoverage" class="block font-bold text-gray-700 mb-2">Vision Coverage</label>
+                        <select id="visionCoverage" class="w-full p-2 border border-gray-300 rounded-md focus:ring-oberlin-gold focus:border-oberlin-gold">
+                            <option value="none">No Coverage</option>
+                            <option value="employee" selected>Employee Only</option>
+                            <option value="employee_plus_one">Employee + 1</option>
+                            <option value="family">Family</option>
+                        </select>
                     </div>
                 </div>
 
                 <!-- Right Column: Results -->
                 <div class="bg-gray-50 p-6 rounded-lg border border-gray-200">
                     <h2 class="text-2xl text-oberlin-crimson border-b-2 border-oberlin-gold pb-2 mb-4">Estimated Compensation Breakdown</h2>
-                    <div class="space-y-4 text-lg">
+                    <div class="space-y-3 text-lg">
                         <div class="flex justify-between">
                             <span>Base Salary:</span>
                             <span class="font-bold" id="result-salary">$75,000</span>
                         </div>
-                        <div class="flex justify-between">
-                            <span>Oberlin Retirement Contribution:</span>
+                         <div class="flex justify-between items-center">
+                            <span class="text-green-700">Health Benefit Value:</span>
+                            <span class="font-bold text-green-700" id="result-health">+$7,000</span>
+                        </div>
+                        <div class="flex justify-between items-center">
+                            <span class="text-green-700">Dental Benefit Value:</span>
+                            <span class="font-bold text-green-700" id="result-dental">+$300</span>
+                        </div>
+                        <div class="flex justify-between items-center">
+                            <span class="text-green-700">Vision Benefit Value:</span>
+                            <span class="font-bold text-green-700" id="result-vision">+$150</span>
+                        </div>
+                        <div class="flex justify-between items-center">
+                            <span class="text-green-700">Oberlin Retirement Contribution:</span>
                             <span class="font-bold text-green-700" id="result-oberlin-retirement">+$6,000</span>
                         </div>
-                        <div class="flex justify-between">
-                            <span>Annual Tuition Benefit Value:</span>
+                        <div class="flex justify-between items-center">
+                            <span class="text-green-700">Annual Tuition Benefit Value:</span>
                             <span class="font-bold text-green-700" id="result-tuition">+$0</span>
                         </div>
-                        <hr class="my-4 border-gray-300">
+                        <hr class="my-3 border-gray-300">
                         <div class="flex justify-between text-2xl">
                             <span class="font-serif text-oberlin-crimson">Total Estimated Value:</span>
-                            <span class="font-bold text-oberlin-crimson" id="result-total">$81,000</span>
+                            <span class="font-bold text-oberlin-crimson" id="result-total">$88,450</span>
                         </div>
-                        <hr class="my-4 border-gray-300">
+                        <hr class="my-3 border-gray-300">
                          <div class="text-base bg-oberlin-gold/20 p-3 rounded-md mt-4">
                             <p class="text-gray-700 font-semibold">Your Annual Retirement Savings:</p>
                             <div class="flex justify-between mt-1">
@@ -141,6 +183,7 @@
                 <h3 class="text-lg font-serif text-gray-800 mb-2">Please Note:</h3>
                 <ul class="list-disc list-inside space-y-2">
                     <li>This calculator is for estimation purposes only and does not constitute a contract or guarantee of benefits.</li>
+                     <li><strong>Health & Insurance Benefits:</strong> The values shown are estimates of Oberlin College's average annual contribution towards the premium costs, not the full premium.</li>
                     <li><strong>Retirement Contribution:</strong> Oberlin's contribution begins after one year of service and attaining age 26. The rate is based on your age.</li>
                     <li><strong>Tuition Benefit:</strong> This benefit for dependent children is available after a five-year service vesting period. The value is estimated at 50% of Oberlin's annual undergraduate tuition (approx. $65,000/year for this calculation) for children attending other accredited institutions.</li>
                     <li>All benefits are subject to the terms and conditions of official plan documents, which are subject to change. For official information, please contact Human Resources.</li>
@@ -161,9 +204,15 @@
         const employeeContributionInput = document.getElementById('employeeContribution');
         const employeeContributionValue = document.getElementById('employeeContribution-value');
         const childrenInput = document.getElementById('children');
+        const healthCoverageInput = document.getElementById('healthCoverage');
+        const dentalCoverageInput = document.getElementById('dentalCoverage');
+        const visionCoverageInput = document.getElementById('visionCoverage');
 
         // Output elements
         const resultSalary = document.getElementById('result-salary');
+        const resultHealth = document.getElementById('result-health');
+        const resultDental = document.getElementById('result-dental');
+        const resultVision = document.getElementById('result-vision');
         const resultOberlinRetirement = document.getElementById('result-oberlin-retirement');
         const resultTuition = document.getElementById('result-tuition');
         const resultTotal = document.getElementById('result-total');
@@ -171,7 +220,11 @@
         const resultTotalOberlinRetirement = document.getElementById('result-total-oberlin-retirement');
         const resultTotalSavings = document.getElementById('result-total-savings');
 
+        // --- Benefit Value Estimates (Employer Contribution) ---
         const OBERLIN_TUITION_ESTIMATE = 65000;
+        const HEALTH_BENEFIT_VALUES = { none: 0, employee: 7000, employee_plus_one: 14000, family: 20000 };
+        const DENTAL_BENEFIT_VALUES = { none: 0, employee: 300, employee_plus_one: 600, family: 900 };
+        const VISION_BENEFIT_VALUES = { none: 0, employee: 150, employee_plus_one: 250, family: 400 };
 
         // --- Formatting Helper ---
         const toCurrency = (num) => num.toLocaleString('en-US', { style: 'currency', currency: 'USD', minimumFractionDigits: 0, maximumFractionDigits: 0 });
@@ -183,6 +236,9 @@
             const age = parseInt(ageInput.value, 10);
             const employeeContributionPercent = parseFloat(employeeContributionInput.value) / 100;
             const children = parseInt(childrenInput.value, 10);
+            const healthSelection = healthCoverageInput.value;
+            const dentalSelection = dentalCoverageInput.value;
+            const visionSelection = visionCoverageInput.value;
 
             // 2. Calculate Oberlin's Retirement Contribution
             let oberlinRetirementContribution = 0;
@@ -211,40 +267,41 @@
                 }
             }
 
-
             // 3. Calculate Tuition Benefit
-            // Assumes benefit is 50% of Oberlin tuition per child
             const tuitionBenefit = children * (OBERLIN_TUITION_ESTIMATE * 0.50);
 
-            // 4. Calculate employee's own contribution
+            // 4. Calculate Insurance Benefit Values
+            const healthBenefit = HEALTH_BENEFIT_VALUES[healthSelection];
+            const dentalBenefit = DENTAL_BENEFIT_VALUES[dentalSelection];
+            const visionBenefit = VISION_BENEFIT_VALUES[visionSelection];
+
+            // 5. Calculate employee's own contribution
             const employeeContributionAmount = salary * employeeContributionPercent;
 
-            // 5. Calculate Totals
-            const totalCompensation = salary + oberlinRetirementContribution + tuitionBenefit;
+            // 6. Calculate Totals
+            const totalCompensation = salary + oberlinRetirementContribution + tuitionBenefit + healthBenefit + dentalBenefit + visionBenefit;
             const totalRetirementSavings = employeeContributionAmount + oberlinRetirementContribution;
 
-            // 6. Update UI
-            // Update slider/input display values
+            // 7. Update UI
             salaryValue.textContent = toCurrency(salary);
             employeeContributionValue.textContent = `${employeeContributionInput.value}%`;
             
-            // Update results breakdown
             resultSalary.textContent = toCurrency(salary);
+            resultHealth.textContent = `+${toCurrency(healthBenefit)}`;
+            resultDental.textContent = `+${toCurrency(dentalBenefit)}`;
+            resultVision.textContent = `+${toCurrency(visionBenefit)}`;
             resultOberlinRetirement.textContent = `+${toCurrency(oberlinRetirementContribution)}`;
             resultTuition.textContent = `+${toCurrency(tuitionBenefit)}`;
             resultTotal.textContent = toCurrency(totalCompensation);
 
-            // Update personal savings box
             resultEmployeeContribution.textContent = toCurrency(employeeContributionAmount);
             resultTotalOberlinRetirement.textContent = toCurrency(oberlinRetirementContribution);
             resultTotalSavings.textContent = toCurrency(totalRetirementSavings);
         }
 
         // --- Event Listeners ---
-        salaryInput.addEventListener('input', calculateTotalCompensation);
-        ageInput.addEventListener('input', calculateTotalCompensation);
-        employeeContributionInput.addEventListener('input', calculateTotalCompensation);
-        childrenInput.addEventListener('input', calculateTotalCompensation);
+        const allInputs = [salaryInput, ageInput, employeeContributionInput, childrenInput, healthCoverageInput, dentalCoverageInput, visionCoverageInput];
+        allInputs.forEach(input => input.addEventListener('input', calculateTotalCompensation));
 
         // --- Initial Calculation on Load ---
         document.addEventListener('DOMContentLoaded', calculateTotalCompensation);
